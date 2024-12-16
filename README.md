@@ -2,7 +2,7 @@ DISCLAIMER
 ==================
 Root project for POE 1 : https://github.com/Kapps/PoEWhisperNotifier/ by Kapps.
 
-I only updated he way the program parses the Client.txt to identify the chat entries so it works with Path of Exile 2. No feature have been added.
+I only updated the way the program parses the Client.txt to identify the chat entries so it works with Path of Exile 2. No feature have been added.
 
 PoE2WhisperNotifier
 ==================
