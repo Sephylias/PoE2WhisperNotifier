@@ -14,7 +14,7 @@ Please note that this program never actually interacts with the client and there
 
 Getting Started
 ==================
-To get started, all you need to do is download and run the [compiled version](https://github.com/Kapps/PoEWhisperNotifier/releases/latest). In most cases, your Client.txt path should be automatically detected and you will immediately start receiving notifications.
+To get started, all you need to do is download and run the [compiled version](https://github.com/Sephylias/PoE2WhisperNotifier/releases/tag/v3.0). In most cases, your Client.txt path should be automatically detected and you will immediately start receiving notifications.
 
 If your Client.txt path is not detected automatically (has a red background), either run the program after PoE is already running and it should auto-detect it, or click the Log Path textbox, manually locate your Client.txt, then press Start.
 
@@ -30,4 +30,4 @@ Phone Notifications (PushBullet)
 
 Download
 ==================
-You can download the latest version of the program from the [release page](https://github.com/Kapps/PoEWhisperNotifier/releases/latest).
+You can download the latest version of the program from the [release page](https://github.com/Sephylias/PoE2WhisperNotifier/releases/tag/v3.0).
