@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="LogPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Program Files (x86)\Grinding Gear Games\Path of Exile\logs\Client.txt</Value>
+      <Value Profile="(Default)">C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2\logs\Client.txt</Value>
     </Setting>
     <Setting Name="NotifyMinimizedOnly" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TrayNotifications" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

@@ -332,7 +332,7 @@ namespace PoEWhisperNotifier {
 		/// </summary>
 		internal static Process GetPoeProcess() {
 			// This doesn't belong in Main, but oh well.
-			Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Equals("Path of Exile", StringComparison.InvariantCultureIgnoreCase) && c.ProcessName.Contains("PathOfExile"));
+			Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Equals("Path of Exile 2", StringComparison.InvariantCultureIgnoreCase) && c.ProcessName.Contains("PathOfExile"));
 			return Process.GetProcesses().FirstOrDefault(IsPoE);
 		}
 

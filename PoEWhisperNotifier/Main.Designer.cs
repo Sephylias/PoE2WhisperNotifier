@@ -294,7 +294,7 @@
 			// 
 			// NotificationIcon
 			// 
-			this.NotificationIcon.Text = "PoE Whisper Notifier";
+			this.NotificationIcon.Text = "PoE2 Whisper Notifier";
 			this.NotificationIcon.Visible = true;
 			// 
 			// Main
@@ -309,7 +309,7 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Main";
-			this.Text = "PoE Whisper Notifier";
+			this.Text = "PoE2 Whisper Notifier";
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

@@ -98,7 +98,7 @@ namespace PoEWhisperNotifier {
 	/// </summary>
 	public class LogMonitor {
 
-		private const string DEFAULT_LOG_PATH = @"C:\Program Files (x86)\Grinding Gear Games\Path of Exile\logs\Client.txt";
+		private const string DEFAULT_LOG_PATH = @"C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2\logs\Client.txt";
 
 		/// <summary>
 		/// Called when a message (such as a whisper or disconnect) is received.
@@ -232,28 +232,43 @@ namespace PoEWhisperNotifier {
 			}
 		}
 
-		private bool TryParseChat(string Line, out MessageData Data) {
+		private bool TryParseChat(string Line, out MessageData Data)
+		{
 			Data = default(MessageData);
-			try {
+			try
+			{
 				var Match = ChatRegex.Match(Line);
-				if(!Match.Success || Match.Groups.Count != 4)
+				if (!Match.Success)
 					return false;
-				string ChatSymbol = Match.Groups[1].Value.FirstOrDefault().ToString();
-				string Username = Match.Groups[2].Value;
-				string Contents = Match.Groups[3].Value;
-				if(String.IsNullOrWhiteSpace(Username) || String.IsNullOrWhiteSpace(Contents))
+				string[] LineWordsGroups = Line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+				string ChatSymbol = "";
+				string EighthGroup = "";
+				if (LineWordsGroups.Length >= 8)
+				{
+					EighthGroup = LineWordsGroups[7];
+					ChatSymbol = EighthGroup[0].ToString();
+				}
+				else
+				{
+					return false;
+				}
+				string Username = EighthGroup.Substring(1);
+				string Contents = string.Join(" ", LineWordsGroups.Skip(8));
+				if (String.IsNullOrWhiteSpace(Username) || String.IsNullOrWhiteSpace(Contents))
 					return false;
 				Username = Username.Trim();
 				var MessageType = MessageTypeForChatSymbol(ChatSymbol);
 				Data = new MessageData(DateTime.Now, Username, Contents, MessageType);
 				return true;
-			} catch {
+			}
+			catch
+			{
 				return false;
 			}
 		}
 
 		// Group 1 = Chat Type, Group 2 = Username, Group 3 = Contents
-		private static readonly Regex ChatRegex = new Regex(@"^.+?\ .+?\ .+?\ .+?\ \[.+?\]\ (%|@From|@От кого|@De|&|\$|#)(.+?):\ (.+)$");
+		private static readonly Regex ChatRegex = new Regex(@".*INFO Client.*\] [%@&$#].*");
 		private static readonly Regex DisconnectRegex = new Regex(@"^.+\ .+\ .+\ .+\ \[.+\]\ Abnormal disconnect:(.+)");
 		private static readonly Dictionary<string, LogMessageType> SymbolToMessageType = new Dictionary<string, LogMessageType>() { { "%", LogMessageType.Party }, { "@", LogMessageType.Whisper }, { "&", LogMessageType.Guild }, { "$", LogMessageType.Trade }, { "#", LogMessageType.Global } };
 
